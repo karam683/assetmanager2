@@ -1,0 +1,5 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" controllerName="personslist.controller.View1" displayBlock="true">
+	<App id="app">
+	</App>
+</mvc:View>

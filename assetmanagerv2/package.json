@@ -1,0 +1,15 @@
+{
+  "name": "assetmanager2",
+  "scripts": {
+    "start": "node  app.js"
+  },
+  "description": "Enhanced Scrap application",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cfenv": "1.0.3",
+    "express": "4.14.0",
+    "request": "^2.81.0",
+    "@dynatrace/oneagent": "1.125.194-1.0.1"
+
+  }
+}

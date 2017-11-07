@@ -1,0 +1,11 @@
+---
+applications:
+- name: assetmanager2
+  memory: 256MB
+  instances: 1
+  timeout: 180
+  buildpack: nodejs_buildpack
+  command: node app.js
+services:   
+- dynatrace-service
+- test_blockchain

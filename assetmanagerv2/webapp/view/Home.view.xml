@@ -1,0 +1,86 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" controllerName="personslist.controller.Home" displayBlock="true">
+<!--title="{i18n>title}" id="idpage" class="pageFormat"-->
+	<Page>
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Image src="image/HCL_Logo_3.png"></Image>
+				</contentLeft>
+				
+				<contentMiddle>
+					<Label text = "{i18n>title}"></Label>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm title="Add Parts to Blockchain" id="sfCreatePartEntry" minWidth="1024" maxContainerCols="2" editable="true"
+					layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+					<f:content>
+						<Label text="Part Number"/>
+						<Input id="idPartNumber"/>
+						
+						<Label text="Serial Number"/>
+						<Input id="idSerialNumber"/>
+						
+						<Label text="Scrapping Entity"/>
+						<Input id="idScrapEntity"/>
+						
+						<Label text="Ref Document Id"/>
+						<Input id="idRefDocId"></Input>
+						
+						<Label text="Scrap DateTime"/>
+						<!--<Input value="2017-07-03 15:04:05 PM -07:00 July Mon UTC" id="idScrapDateTime"></Input>-->
+						<DatePicker id="idScrapDateTime"></DatePicker>
+						
+						
+						<Button text="Add to Blockchain" icon="sap-icon://add" type="Accept" press="handlePressCreatePartEntry"></Button>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+			<Table id="idTblList" items="{listModel>/results}">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="Parts in Blockchain"/>
+						<SearchField placeholder="Search By Part Number / Serial Number" width="70%" liveChange="onSearch"></SearchField>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button id="readButton" text="Refresh Blockchain" type="Accept" icon="sap-icon://refresh" press="onCallBC"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Part Number"/>
+					</Column>
+					<Column>
+						<Text text="Serial Number"/>
+					</Column>
+					<Column>
+						<Text text="Scrapping Entity"/>
+					</Column>
+					<Column>
+						<Text text="Ref Doc Id"/>
+					</Column>
+					<Column>
+						<Text text="Scrap Date Time"/>
+					</Column>
+					
+					
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Link text="{listModel>partnumber}" press="handlePartNumberLinkPress"/>
+							<Text text="{listModel>serialnumber}"/>
+							<Text text="{listModel>scrappingentity}"/>
+							<Text text="{listModel>refdocumentid}"/>
+							<Text text="{listModel>scrapdatetime}"/>
+							
+							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,47 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" controllerName="personslist.controller.History" displayBlock="true">
+	<Page title="Part History" showNavButton="true" navButtonPress="goBack">
+		<content>
+			<Table id="idTblHistory" items="{historyModel>/results}">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="Search By Serial Number" width="100%" liveChange="onSearch"></SearchField>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Last Changed"/>
+					</Column>
+					
+					<Column>
+						<Text text="Serial Number"/>
+					</Column>
+					
+					<Column>
+						<Text text="Scrapping Entity"/>
+					</Column>
+					
+					<Column>
+						<Text text="Ref Doc Id"/>
+					</Column>
+					<Column>
+						<Text text="Scrap Date Time"/>
+					</Column>
+					
+					
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{historyModel>Timestamp}"/>
+							<Text text="{historyModel>serialnumber}"/>
+							<Text text="{historyModel>scrappingentity}"/>
+							<Text text="{historyModel>refdocumentid}"/>
+							<Text text="{historyModel>scrapdatetime}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>
